@@ -43,7 +43,7 @@ function LoginScreen  ({ navigation }) {
     }
 
     const handleLogin = () => {
-      console.log(data);
+      // console.log(data);
       Login(data).then(res => {
         (async () => {
           await dispatch(loginAction())
