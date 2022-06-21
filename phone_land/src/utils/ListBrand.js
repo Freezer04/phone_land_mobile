@@ -1,15 +1,28 @@
- import React from 'react';
- import {View, StyleSheet, ScrollView, SafeAreaView,ImageBackground} from 'react-native';
- import ImgBrand from '../assets/image/Xiaomi.png';
+ import React, {useEffect, useState} from 'react';
+ import {View, StyleSheet, ScrollView, SafeAreaView,ImageBackground, Text} from 'react-native';
+ import axios from 'axios';
  
  const ListBrand = () => {
+  const [ Data, setData ] = useState([])
+
+
+  useEffect(() => {
+    axios.get('http://192.168.137.1:3000/api/brand')
+    .then(res => {
+        // console.log( "data",res.data);
+        setData(res.data);
+    }).catch (err => {
+        console.log(err);
+    }) 
+},[])
    return (
     <ScrollView>
      <SafeAreaView style={{ flexDirection: 'row',
             flexWrap: 'wrap',
             justifyContent: 'space-between',
             marginTop: 50, }}>
-     <View
+      {Data.map((items, index) =>(
+     <View key={index} 
       style={{
         backgroundColor: "#fff",
         shadowColor: "#000",
@@ -27,15 +40,19 @@
         height: 95,
         marginBottom: 10 
 }}>
+  
   <ImageBackground source={require('../assets/image/Xiaomi.png')}
     style={{ 
-      width: 75,
-      height: 75,
+      width: 50,
+      height: 50,
       }}>
   </ImageBackground>
+  <Text style={{}}>{items.name}</Text>
      </View>
+    ))}
      </SafeAreaView>
     </ScrollView>
+    
    );
  }
  
