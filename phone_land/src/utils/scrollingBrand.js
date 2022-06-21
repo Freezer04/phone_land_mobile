@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import { useEffect, useState } from 'react';
-import {View, StyleSheet, ScrollView, Text, ImageBackground} from 'react-native';
+import {View, StyleSheet, ScrollView, Text} from 'react-native';
 
 
 
@@ -39,14 +39,9 @@ const ScrollingBrand = () => {
                         fontFamily: "poppin-meduim",
                         color: "#400C56",
                          }}>{items.name}
-                      </Text>
-                    
-                       
-        </View>
+                      </Text>   
+       </View>
        ))}    
-
-      
-
     </ScrollView>
   );
 }
