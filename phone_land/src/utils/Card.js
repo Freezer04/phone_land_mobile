@@ -1,5 +1,5 @@
 import React from 'react';
-import {  StyleSheet, View, Text  } from 'react-native';
+import {  StyleSheet, View, Text, ImageBackground  } from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient';
 
 const Cards = () => {
@@ -16,6 +16,9 @@ const Cards = () => {
         />
         <Text style={styles.titel}  >Buy Phones</Text>
         <Text style= {styles.descrption}>Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.</Text>
+        <ImageBackground 
+                      source={require('../assets/image/phone.png')}
+                      style={{width: 100, height: 120, marginLeft: 10, position:"absolute", right: 25, top: 35}}/>
     </View>
   );
 }
