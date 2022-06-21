@@ -25,54 +25,38 @@ const RegisterScreen = ({navigation}) => {
   const[name , setName]= useState("")
   const[email , setEmail]= useState("")
   const[password , setPassword]= useState("")
-  
+  const [number, setNumber] = useState('')
   const [success, setSuccess] = useState('')
 
 
 
   const handleName = (e)=>{
-    console.log(e , "name");
     return setName(e)
   }
  
   const handleEmail = (e)=>{
-    console.log(e , "email");
     return setEmail(e)
   }
   const handlePassword = (e)=>{
-    console.log(e , "password");
     return setPassword(e)
   }
-  
-  const API_URL = 'http://192.168.137.1:3000/api/user/signup';
-  const regesterHandler = async (values)=>{
-    let emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-
-        if (values.setName.length < 6 || values.firstname.length > 15) {
-          setDataErrors({setName: "first name must be between 6 and 15 characters."})
-        }else if(!values.setEmail.match(emailRegex)) {
-          setDataErrors({ setEmail: "invalid email format."})
-        }else if(values.setPassword.length < 4 || values.password.length > 30) {
-          setDataErrors({ setPassword: "password must be between 4 and 30 characters."})
-        }else if (values.password !== values.repeatpassword) {
-          setDataErrors({ repeatpassword: "passwords are not identical."})
-        }else {
-            await setDataErrors({})    
-            await register(values);
-            await navigation.goBack();
-        }
+  const handleNumber = (e)=>{
+    return setNumber(e)
+  }
+  const API_URL = 'http://192.168.137.1:5000/api/signup';
+  const regesterHandler = async ()=>{
     const 
     _user={
-      user_name,
+     name,
       email,
       password,
-    
+      number
     }
    try {
      const result = await axios.post(API_URL , _user)
      console.log(result)
      setSuccess(result.data.msg)
-     navigation.navigate('Home')
+     navigation.navigate('Login')
    } catch (error) {
      console.log(error)
    }
