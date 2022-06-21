@@ -19,7 +19,7 @@ const BrandScreen = () => {
           </Text>
           <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
             <ImageBackground 
-              source={require('../../assets/Logo.png')}
+              source={require('../assets/image/profile1.jpg')}
                 style={{width: 40, height: 40}}
                 imageStyle={{borderRadius: 25}}
                 

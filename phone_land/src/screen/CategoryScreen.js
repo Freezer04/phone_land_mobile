@@ -12,7 +12,7 @@ const CategoryScreen = ({navigation}) => {
   useEffect(() => {
     axios.get('http://192.168.137.1:3000/api/product')
     .then(res => {
-        console.log(res.data);
+        // console.log(res.data);
         setData(res.data);
     }).catch (err => {
         console.log(err);
@@ -56,22 +56,25 @@ const CategoryScreen = ({navigation}) => {
             marginTop: 10,
             
           }}>
-            {Data.map((items, index) =>(
-    <Card       key={index} style={{ borderColor: '#A386AF',
-                backgroundColor: "#fff",
-                borderWidth: 1,
-                borderRadius: 5,
-                width: 170,
-                height: 300,
-                marginHorizontal:10,
-                marginVertical: 5}}  onPress={() => navigation.navigate('Dvice') } >
+            {Data.map((item, index) =>(
+            <Card  key={index} style={{ borderColor: '#A386AF',
+                   backgroundColor: "#fff",
+                   borderWidth: 1,
+                   borderRadius: 5,
+                   width: 170,
+                   height: 300,
+                   marginHorizontal:10,
+                   marginVertical: 5}}  onPress={() => {
+                    navigation.navigate('Dvice', {
+                      itemId: item.porduct_id,
+                      
+                    });
+                  }}>
                 <Card.Content>
-                  <Title style={{ fontSize: 15, fontFamily: 'poppin-bold' , color: '#400C56' }}>{items.name}</Title>
+                  <Title style={{ fontSize: 15, fontFamily: 'poppin-bold' , color: '#400C56' }}>{item.name}</Title>
                 </Card.Content >
-              <Card.Cover source={require('../assets/image/phone.png')}  />
-              
-    
-             <Text style={{ fontSize: 15, fontFamily: 'poppin-bold' , color: '#400C56' , marginVertical: 5, paddingHorizontal: 6 }} >{items.price} DH</Text>
+              <Card.Cover source={require('../assets/image/phone.png')}/>
+             <Text style={{ fontSize: 15, fontFamily: 'poppin-bold' , color: '#400C56' , marginVertical: 5, paddingHorizontal: 6 }} >{item.price} DH</Text>
      
     
   </Card>
