@@ -3,7 +3,7 @@ import {View, StyleSheet, ScrollView, Text, TouchableOpacity, ImageBackground} f
 import Header from '../utils/Header';
 import BrandList from '../utils/ListBrand';
 
-const BrandScreen = () => {
+const BrandScreen = ({navigation}) => {
   return (
    <ScrollView padding= {20}>
      <View
@@ -17,7 +17,7 @@ const BrandScreen = () => {
           <Text style={{fontSize: 18, fontFamily: 'poppin-bold' , color: '#400C56'}}>
             All Brands
           </Text>
-          <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Product')}>
             <ImageBackground 
               source={require('../assets/image/profile1.jpg')}
                 style={{width: 40, height: 40}}
@@ -28,7 +28,7 @@ const BrandScreen = () => {
           </TouchableOpacity>
         </View  >
         <Header/>
-        <BrandList/>
+        <BrandList navigation={navigation}/>
    </ScrollView>
   );
 }
