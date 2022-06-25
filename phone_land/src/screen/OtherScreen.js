@@ -38,12 +38,11 @@ const DviceScreen = ({navigation}) => {
        
         <Text  style={{fontSize: 14, fontFamily: 'poppin-regular' , color: '#A386AF',marginBottom: 5 }}>what do you wanna buy today?</Text>
         <View style={{
-            flexDirection: 'row',
-            flexWrap: "nowrap",
+          flexDirection: 'row',
+          flexWrap: 'wrap',
             justifyContent: 'space-between',
             marginTop: 10,
             backgroundColor: "000"
-            
           }}>
             {Data.map((items, index) =>(
             <Card  key={index} style={{ borderColor: '#A386AF',
@@ -53,7 +52,11 @@ const DviceScreen = ({navigation}) => {
                    width: 170,
                    height: 300,
                    marginHorizontal:2,
-                   marginVertical: 5}}   >
+                   marginVertical: 5}} onPress={() => {
+                    navigation.navigate('Dvice', {
+                      itemId: items.porduct_id,
+                    });
+                  }}  >
                 <Card.Content>
                   <Title style={{ fontSize: 15, fontFamily: 'poppin-bold' , color: '#400C56' }}>{items.name}</Title>
                 </Card.Content >
