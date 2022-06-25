@@ -5,10 +5,9 @@ export default function InputField({
   label,
   icon,
   inputType,
-  keyboardType,
   fieldButtonLabel,
-  fieldButtonFunction,
-  onChangeText
+  onChangeText,
+ 
 }) {
   return (
     <View
@@ -22,21 +21,23 @@ export default function InputField({
       {icon}
       {inputType == 'password' ? (
         <TextInput
+          color ={"#fff"}
           placeholder={label}
-          keyboardType={keyboardType}
-          style={{flex: 1, paddingVertical: 0}}
+          placeholderTextColor="#FFF"
+          style={{flex: 1, paddingVertical: 0 , color: "#fff"}}
           secureTextEntry={true}
           onChangeText={onChangeText}
         />
       ) : (
         <TextInput
+          color ={"#fff"}
           placeholder={label}
-          keyboardType={keyboardType}
-          style={{flex: 1, paddingVertical: 0}}
+          placeholderTextColor="#FFF"
+          style={{flex: 1, paddingVertical: 0, color: "#fff"}}
           onChangeText={onChangeText}
         />
       )}
-      <TouchableOpacity onPress={fieldButtonFunction}>
+      <TouchableOpacity >
         <Text style={{color: '#fff', fontWeight: '600'}}>{fieldButtonLabel}</Text>
       </TouchableOpacity>
     </View>
