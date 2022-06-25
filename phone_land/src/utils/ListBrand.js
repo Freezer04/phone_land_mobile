@@ -1,10 +1,9 @@
  import React, {useEffect, useState} from 'react';
- import {View, StyleSheet, ScrollView, SafeAreaView,ImageBackground, Text} from 'react-native';
+ import {View, StyleSheet, ScrollView, SafeAreaView,ImageBackground, Text, TouchableOpacity} from 'react-native';
  import axios from 'axios';
  
- const ListBrand = () => {
+ const ListBrand = ({navigation}) => {
   const [ Data, setData ] = useState([])
-
 
   useEffect(() => {
     axios.get('http://192.168.137.1:3000/api/brand')
@@ -22,7 +21,8 @@
             justifyContent: 'space-between',
             marginTop: 50, }}>
       {Data.map((items, index) =>(
-     <View key={index} 
+     <TouchableOpacity 
+      key={index} 
       style={{
         backgroundColor: "#fff",
         shadowColor: "#000",
@@ -38,17 +38,22 @@
         borderRadius: 10,
         width: 165,
         height: 95,
-        marginBottom: 10 
-}}>
+        marginBottom: 10}}   
+        onPress={() => {
+          navigation.navigate('Product', {
+            itemId: items.brand_id,
+          });
+        }}
+        >
   
   <ImageBackground source={require('../assets/image/Xiaomi.png')}
     style={{ 
       width: 50,
       height: 50,
-      }}>
+      }} >
   </ImageBackground>
-  <Text style={{}}>{items.name}</Text>
-     </View>
+  <Text>{items.name}</Text>
+     </TouchableOpacity>
     ))}
      </SafeAreaView>
     </ScrollView>
