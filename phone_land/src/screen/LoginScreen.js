@@ -43,7 +43,6 @@ function LoginScreen  ({ navigation }) {
     }
 
     const handleLogin = () => {
-      // console.log(data);
       Login(data).then(res => {
         (async () => {
           await dispatch(loginAction())
@@ -58,13 +57,14 @@ function LoginScreen  ({ navigation }) {
     
     
   return (
-   <ImageBackground source={require('../assets/image/login1.png')}  style={{flex: 1, justifyContent: 'center'}}>
-
+    
+      
+   <ImageBackground source={require('../assets/image/login1.png')}  style={{ justifyContent: 'center'}}>
     <SafeAreaView >
-      <ScrollView>
-    <View style={{paddingHorizontal: 25}}>
-       
 
+   
+    <ScrollView style={{paddingHorizontal: 25, paddingVertical: 150}}>
+    <View >
         <Text
           style={{
             fontFamily: 'poppin-bold',
@@ -80,6 +80,7 @@ function LoginScreen  ({ navigation }) {
           onChangeText= {handleEmail}
           email={data.email}
           label={'Email ID'}
+        
           icon={
             <MaterialIcons
             name="alternate-email"
@@ -88,13 +89,14 @@ function LoginScreen  ({ navigation }) {
             style={{marginRight: 5}}
           />
           }
-          keyboardType="email-address"
+          
         />
-        <Text style={{...styles.error_text, display: error.email ? 'flex' : 'none'}}>email invalid</Text> 
+        {/* <Text style={{...styles.error_text, display: error.email ? 'flex' : 'none'}}>email invalid</Text>  */}
         <InputField
           onChangeText= {handlePassword}
           label={'Password'}
           password= {data.password}
+          
           icon={
             <Ionicons
             name="ios-lock-closed-outline"
@@ -105,9 +107,8 @@ function LoginScreen  ({ navigation }) {
           }
           inputType="password"
           fieldButtonLabel={"Forgot?"}
-          fieldButtonFunction={() => {}}
         />
-        <Text style={{...styles.error_text, display: error.password ? 'flex' : 'none'}}>password inccorect!</Text>
+        {/* <Text style={{...styles.error_text, display: error.password ? 'flex' : 'none'}}>password inccorect!</Text> */}
         <CustomButton label={"Login"} onPress={handleLogin} />
 
         <Text style={{textAlign: 'center', color: '#fff', marginBottom: 30}}>
@@ -165,8 +166,7 @@ function LoginScreen  ({ navigation }) {
         </View>
       </View>
       </ScrollView>
-      
-    </SafeAreaView>
+      </SafeAreaView>
    </ImageBackground>
 
 
