@@ -66,8 +66,8 @@ const RegisterScreen = ({navigation}) => {
     <ImageBackground source={require('../assets/image/register.png')}  style={{flex: 1, justifyContent: 'center'}}>
       <SafeAreaView >
       <ScrollView
-        showsVerticalScrollIndicator={false}
-        style={{paddingHorizontal: 25}}>
+        
+        style={{paddingHorizontal: 25, paddingVertical: 150}}>
         
 
         <Text
@@ -147,7 +147,7 @@ const RegisterScreen = ({navigation}) => {
             style={{marginRight: 5}}
           />
           }
-          keyboardType="email-address"
+          
         />
 
         <InputField
