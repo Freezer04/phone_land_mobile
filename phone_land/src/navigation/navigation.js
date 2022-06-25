@@ -12,6 +12,7 @@ import RegisterScreen from '../screen/RegisterScreen'
 import TabNavigate from './TabNavigate';
 import DviceDetails from '../screen/DviceDetails'
 import ProfileScreen from "../screen/Profile"
+import ProductList from '../screen/productList';
 
 const AppStack = createStackNavigator();
 const Navigation = () => {
@@ -26,6 +27,7 @@ const Navigation = () => {
         <AppStack.Screen name="Home"component={TabNavigate} options={{ headerShown: false }}/>
         <AppStack.Screen name="Dvice"component={DviceDetails} options={{ headerShown: false }}/>
         <AppStack.Screen name="Profile"component={ProfileScreen} options={{ headerShown: false }}/>
+        <AppStack.Screen name="Product"component={ProductList} options={{ headerShown: false }}/>
       </AppStack.Navigator>
     </NavigationContainer>
    </View>
