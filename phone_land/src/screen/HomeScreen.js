@@ -15,6 +15,7 @@ import {LinearGradient} from 'expo-linear-gradient';
 import Header from '../utils/Header';
 import Crard  from '../utils/Card';
 import ScrollCaty from '../utils/ScrollCaty';
+
 export default function Home({navigation}) {
  
 
@@ -66,7 +67,7 @@ export default function Home({navigation}) {
                       justifyContent: 'space-between',
                       borderColor: '#A386AF',
                       backgroundColor: "#fff",
-                      borderWidth: 1,
+                      borderWidth: 0.5,
                       borderRadius: 5,
                       width: 165,
                       height: 70,
@@ -89,7 +90,7 @@ export default function Home({navigation}) {
                       justifyContent: 'space-between',
                       borderColor: '#A386AF',
                       backgroundColor: "#fff",
-                      borderWidth: 1,
+                      borderWidth: 0.5,
                       borderRadius: 5,
                       width: 165,
                       height: 70,
@@ -111,7 +112,7 @@ export default function Home({navigation}) {
                       justifyContent: 'space-between',
                       borderColor: '#A386AF',
                       backgroundColor: "#fff",
-                      borderWidth: 1,
+                      borderWidth: 0.5,
                       borderRadius: 5,
                       width: 165,
                       height: 70
@@ -132,7 +133,7 @@ export default function Home({navigation}) {
                       justifyContent: 'space-between',
                       borderColor: '#A386AF',
                       backgroundColor: "#fff",
-                      borderWidth: 1,
+                      borderWidth: 0.5,
                       borderRadius: 5,
                       width: 165,
                       height: 70
@@ -156,7 +157,7 @@ export default function Home({navigation}) {
         <Text  style={{fontSize: 18, fontFamily: 'poppin-bold' , color: '#400C56' }}>Popular Brands</Text>
         <Text  style={{fontSize: 14, fontFamily: 'poppin-meduim' , color: '#A386AF' }} onPress={() => navigation.navigate("Brand")}>See All</Text>
         </View>
-        <ScrollCaty/>
+        <ScrollCaty navigation={navigation}/>
         </SafeAreaView>
         <SafeAreaView style={{ flexDirection: 'row',
             flexWrap: 'wrap',

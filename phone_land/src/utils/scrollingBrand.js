@@ -3,8 +3,6 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import {View, StyleSheet, ScrollView, Text} from 'react-native';
 
-
-
 const ScrollingBrand = () => {
 
     const [ Data, setData ] = useState([])
@@ -24,7 +22,6 @@ const ScrollingBrand = () => {
     <ScrollView horizontal={true}  showsHorizontalScrollIndicator={false} >
       {Data.map((items, index) =>(
        <View key={index} style={{
-            
             alignItems:"center",
             justifyContent: "center",    
             borderColor: '#A386AF',
